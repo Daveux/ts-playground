@@ -12,6 +12,9 @@ Book.find({})
     })
 }
 
-export const 
-Book.findById()
-    .then()
+export const showBook = function(req: Request, res: Response) {
+Book.findById(req.params.id)
+    .then(function() {
+        
+    })
+}
