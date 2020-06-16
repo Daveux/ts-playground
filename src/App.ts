@@ -22,8 +22,9 @@ app.get('/', function getHomeRoute(req: Request, res: Response, next: NextFuncti
 
 app.get('/books', BookController.allbooks);
 app.get('/books:id', BookController.showBook);
-app.post('/books', BookController.allbooks);
-app.get('/books', BookController.allbooks);
+app.post('/books', BookController.addBook);
+app.patch('/books:id', BookController.updateBook);
+app.delete('/books:id', BookController.deleteBook);
 
 app.listen (port, function connectApp () {
     console.log(`Server is running on port ${port} o!`);
