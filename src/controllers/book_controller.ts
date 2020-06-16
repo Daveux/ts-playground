@@ -3,6 +3,7 @@ import { Request, Response} from "express";
 import  Book from "../models/books";
 
 export const allbooks = function(req: Request, res: Response) {
+    console.log(req.params);
     Book.find({})
         .then(function bookFound(books: any) {
             res.send(books);
@@ -33,6 +34,7 @@ export const addBook = function(req: Request, res: Response) {
 }
 
 export const updateBook = function(req: Request, res: Response) {
+    console.log("Gotten updateBook endpoint");
     Book.findByIdAndUpdate(req.params.id, req.body)
         .then(function(book: any) {
             res.send(book);

@@ -14,17 +14,15 @@ connect(db);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use()
-
-app.get('/', function getHomeRoute(req: Request, res: Response, next: NextFunction) {
-    res.send("Hello World");
-});
 
 app.get('/books', BookController.allbooks);
-app.get('/books:id', BookController.showBook);
+app.get('/books/:id', BookController.showBook);
 app.post('/books', BookController.addBook);
-app.patch('/books:id', BookController.updateBook);
-app.delete('/books:id', BookController.deleteBook);
+// app.patch('/books/:id', BookController.updateBook);
+
+app.patch("/books/:id", BookController.updateBook);
+
+app.delete('/books/ :id', BookController.deleteBook);
 
 app.listen (port, function connectApp () {
     console.log(`Server is running on port ${port} o!`);
